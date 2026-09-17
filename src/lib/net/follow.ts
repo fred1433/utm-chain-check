@@ -204,7 +204,7 @@ async function validateAddress(
   for (const address of addresses) {
     const verdict = classifyAddressText(address);
     if (!verdict.allowed) {
-      return { ok: false, reason: `destination resolves to a ${verdict.reason}` };
+      return { ok: false, reason: `destination resolves to ${verdict.reason}` };
     }
   }
   return { ok: true, ip: addresses[0] };

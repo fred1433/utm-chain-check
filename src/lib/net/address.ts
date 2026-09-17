@@ -97,20 +97,20 @@ export function formatIp(ip: IpAddress): string {
 type Range4 = { prefix: [number, number, number, number]; bits: number; label: string };
 
 const BLOCKED_V4: Range4[] = [
-  { prefix: [0, 0, 0, 0], bits: 8, label: "this network" },
-  { prefix: [10, 0, 0, 0], bits: 8, label: "private" },
-  { prefix: [100, 64, 0, 0], bits: 10, label: "carrier grade NAT" },
-  { prefix: [127, 0, 0, 0], bits: 8, label: "loopback" },
-  { prefix: [169, 254, 0, 0], bits: 16, label: "link local, cloud metadata included" },
-  { prefix: [172, 16, 0, 0], bits: 12, label: "private" },
-  { prefix: [192, 0, 0, 0], bits: 24, label: "protocol assignments" },
-  { prefix: [192, 0, 2, 0], bits: 24, label: "documentation" },
-  { prefix: [192, 168, 0, 0], bits: 16, label: "private" },
-  { prefix: [198, 18, 0, 0], bits: 15, label: "benchmarking" },
-  { prefix: [198, 51, 100, 0], bits: 24, label: "documentation" },
-  { prefix: [203, 0, 113, 0], bits: 24, label: "documentation" },
-  { prefix: [224, 0, 0, 0], bits: 4, label: "multicast" },
-  { prefix: [240, 0, 0, 0], bits: 4, label: "reserved" },
+  { prefix: [0, 0, 0, 0], bits: 8, label: "a this network" },
+  { prefix: [10, 0, 0, 0], bits: 8, label: "a private" },
+  { prefix: [100, 64, 0, 0], bits: 10, label: "a carrier grade NAT" },
+  { prefix: [127, 0, 0, 0], bits: 8, label: "a loopback" },
+  { prefix: [169, 254, 0, 0], bits: 16, label: "a link local or cloud metadata" },
+  { prefix: [172, 16, 0, 0], bits: 12, label: "a private" },
+  { prefix: [192, 0, 0, 0], bits: 24, label: "a protocol assignments" },
+  { prefix: [192, 0, 2, 0], bits: 24, label: "a documentation" },
+  { prefix: [192, 168, 0, 0], bits: 16, label: "a private" },
+  { prefix: [198, 18, 0, 0], bits: 15, label: "a benchmarking" },
+  { prefix: [198, 51, 100, 0], bits: 24, label: "a documentation" },
+  { prefix: [203, 0, 113, 0], bits: 24, label: "a documentation" },
+  { prefix: [224, 0, 0, 0], bits: 4, label: "a multicast" },
+  { prefix: [240, 0, 0, 0], bits: 4, label: "a reserved" },
 ];
 
 function inRange4(bytes: Uint8Array, range: Range4): boolean {
@@ -143,19 +143,19 @@ export function classifyAddress(ip: IpAddress): AddressVerdict {
   // 6to4 (2002::/16) carries an IPv4 address in the next 32 bits.
   if (b[0] === 0x20 && b[1] === 0x02) {
     const inner = classifyV4(b.slice(2, 6));
-    if (!inner.allowed) return { allowed: false, reason: `6to4 address wrapping a ${inner.reason}` };
+    if (!inner.allowed) return { allowed: false, reason: `a 6to4 address wrapping ${inner.reason}` };
   }
 
-  if (b.every((x) => x === 0)) return { allowed: false, reason: "unspecified address" };
-  if (isZeroPrefix(15) && b[15] === 1) return { allowed: false, reason: "IPv6 loopback" };
-  if ((b[0] & 0xfe) === 0xfc) return { allowed: false, reason: "IPv6 unique local address" };
-  if (b[0] === 0xfe && (b[1] & 0xc0) === 0x80) return { allowed: false, reason: "IPv6 link local address" };
-  if (b[0] === 0xff) return { allowed: false, reason: "IPv6 multicast" };
+  if (b.every((x) => x === 0)) return { allowed: false, reason: "the unspecified address" };
+  if (isZeroPrefix(15) && b[15] === 1) return { allowed: false, reason: "an IPv6 loopback address" };
+  if ((b[0] & 0xfe) === 0xfc) return { allowed: false, reason: "an IPv6 unique local address" };
+  if (b[0] === 0xfe && (b[1] & 0xc0) === 0x80) return { allowed: false, reason: "an IPv6 link local address" };
+  if (b[0] === 0xff) return { allowed: false, reason: "an IPv6 multicast address" };
   if (b[0] === 0x01 && b[1] === 0x00 && b.slice(2, 8).every((x) => x === 0)) {
-    return { allowed: false, reason: "IPv6 discard prefix" };
+    return { allowed: false, reason: "an IPv6 discard prefix address" };
   }
   if (b[0] === 0x20 && b[1] === 0x01 && b[2] === 0x0d && b[3] === 0xb8) {
-    return { allowed: false, reason: "IPv6 documentation prefix" };
+    return { allowed: false, reason: "an IPv6 documentation address" };
   }
   return { allowed: true };
 }
@@ -171,6 +171,6 @@ function classifyV4(bytes: Uint8Array): AddressVerdict {
 
 export function classifyAddressText(text: string): AddressVerdict {
   const ip = parseIp(text);
-  if (!ip) return { allowed: false, reason: "address could not be parsed" };
+  if (!ip) return { allowed: false, reason: "an address that could not be read" };
   return classifyAddress(ip);
 }
