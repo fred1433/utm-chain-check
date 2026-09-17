@@ -13,10 +13,6 @@ const measure: { label: string; body: React.ReactNode }[] = [
     body: "A reader who is told which parameter changed, and where, is more likely to act on their own links than a reader told only that the chain has three hops.",
   },
   {
-    label: "Distribution",
-    body: "One entry point from the guide that asks for the check, subject to your agreement. A page that sits outside your site builds no audience on its own, and this is not assumed.",
-  },
-  {
     label: "Primary measure",
     body: "Sessions that ran a scan on a link of their own and then clicked through to the guide, over sessions exposed. Computed by a query that runs in the checks, against the event contract, on the recorded test dataset.",
   },
@@ -100,8 +96,10 @@ export default function Home() {
         </h2>
         <p className="mt-8 max-w-[680px] text-[17px] leading-[1.7] text-ink md:text-[18px]">
           The instrumentation runs end to end already: an action in the browser, an event received,
-          stored and deduplicated, and a query executed over what was recorded. Nothing is measured
-          on your side, and no traction is shown.
+          stored and deduplicated, and a query executed over what was recorded. Carrying it would
+          take one entry point from the guide, subject to your agreement, since a page that sits
+          outside your site builds no audience on its own. Nothing is measured on your side, and no
+          traction is shown.
         </p>
         <dl className="mt-12 space-y-7">
           {measure.map((row) => (
