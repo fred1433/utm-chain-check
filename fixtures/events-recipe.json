@@ -1,0 +1,412 @@
+{
+  "experiment_id": "utm-chain-check-2026-09",
+  "recorded_for": "the recipe of the measure, not traffic",
+  "cases": [
+    {
+      "name": "a visitor runs a scan on a link of their own, then clicks through",
+      "events": [
+        {
+          "experiment_id": "utm-chain-check-2026-09",
+          "event_id": "e001",
+          "session_id": "s-live-complete",
+          "scan_id": null,
+          "event_name": "page_opened",
+          "occurred_at": "2026-09-17T10:00:00.000Z",
+          "source_kind": "live"
+        },
+        {
+          "experiment_id": "utm-chain-check-2026-09",
+          "event_id": "e002",
+          "session_id": "s-live-complete",
+          "scan_id": null,
+          "event_name": "scan_started",
+          "occurred_at": "2026-09-17T10:00:05.000Z",
+          "source_kind": "live"
+        },
+        {
+          "experiment_id": "utm-chain-check-2026-09",
+          "event_id": "e003",
+          "session_id": "s-live-complete",
+          "scan_id": "scan-1",
+          "event_name": "scan_result_computed",
+          "occurred_at": "2026-09-17T10:00:06.000Z",
+          "source_kind": "live"
+        },
+        {
+          "experiment_id": "utm-chain-check-2026-09",
+          "event_id": "e004",
+          "session_id": "s-live-complete",
+          "scan_id": "scan-1",
+          "event_name": "scan_result_displayed",
+          "occurred_at": "2026-09-17T10:00:06.000Z",
+          "source_kind": "live"
+        },
+        {
+          "experiment_id": "utm-chain-check-2026-09",
+          "event_id": "e005",
+          "session_id": "s-live-complete",
+          "scan_id": null,
+          "event_name": "product_link_clicked",
+          "occurred_at": "2026-09-17T10:00:20.000Z",
+          "source_kind": "live"
+        }
+      ],
+      "expected_received": 5,
+      "expected_stored": 5,
+      "note": "counted once in every column of the measure"
+    },
+    {
+      "name": "a visitor reads a result and leaves",
+      "events": [
+        {
+          "experiment_id": "utm-chain-check-2026-09",
+          "event_id": "e006",
+          "session_id": "s-live-result-only",
+          "scan_id": null,
+          "event_name": "page_opened",
+          "occurred_at": "2026-09-17T10:00:30.000Z",
+          "source_kind": "live"
+        },
+        {
+          "experiment_id": "utm-chain-check-2026-09",
+          "event_id": "e007",
+          "session_id": "s-live-result-only",
+          "scan_id": null,
+          "event_name": "scan_started",
+          "occurred_at": "2026-09-17T10:00:35.000Z",
+          "source_kind": "live"
+        },
+        {
+          "experiment_id": "utm-chain-check-2026-09",
+          "event_id": "e008",
+          "session_id": "s-live-result-only",
+          "scan_id": "scan-2",
+          "event_name": "scan_result_computed",
+          "occurred_at": "2026-09-17T10:00:36.000Z",
+          "source_kind": "live"
+        },
+        {
+          "experiment_id": "utm-chain-check-2026-09",
+          "event_id": "e009",
+          "session_id": "s-live-result-only",
+          "scan_id": "scan-2",
+          "event_name": "scan_result_displayed",
+          "occurred_at": "2026-09-17T10:00:36.000Z",
+          "source_kind": "live"
+        }
+      ],
+      "expected_received": 4,
+      "expected_stored": 4,
+      "note": "exposed and counted as a result, never as a click"
+    },
+    {
+      "name": "a scan is interrupted before a result exists",
+      "events": [
+        {
+          "experiment_id": "utm-chain-check-2026-09",
+          "event_id": "e010",
+          "session_id": "s-live-interrupted",
+          "scan_id": null,
+          "event_name": "page_opened",
+          "occurred_at": "2026-09-17T10:01:00.000Z",
+          "source_kind": "live"
+        },
+        {
+          "experiment_id": "utm-chain-check-2026-09",
+          "event_id": "e011",
+          "session_id": "s-live-interrupted",
+          "scan_id": null,
+          "event_name": "scan_started",
+          "occurred_at": "2026-09-17T10:01:05.000Z",
+          "source_kind": "live"
+        }
+      ],
+      "expected_received": 2,
+      "expected_stored": 2,
+      "note": "exposed, no result: a started scan is never counted as a result"
+    },
+    {
+      "name": "a click happens before any result was displayed",
+      "events": [
+        {
+          "experiment_id": "utm-chain-check-2026-09",
+          "event_id": "e012",
+          "session_id": "s-live-click-first",
+          "scan_id": null,
+          "event_name": "page_opened",
+          "occurred_at": "2026-09-17T10:01:30.000Z",
+          "source_kind": "live"
+        },
+        {
+          "experiment_id": "utm-chain-check-2026-09",
+          "event_id": "e013",
+          "session_id": "s-live-click-first",
+          "scan_id": null,
+          "event_name": "product_link_clicked",
+          "occurred_at": "2026-09-17T10:01:35.000Z",
+          "source_kind": "live"
+        },
+        {
+          "experiment_id": "utm-chain-check-2026-09",
+          "event_id": "e014",
+          "session_id": "s-live-click-first",
+          "scan_id": null,
+          "event_name": "scan_started",
+          "occurred_at": "2026-09-17T10:01:40.000Z",
+          "source_kind": "live"
+        },
+        {
+          "experiment_id": "utm-chain-check-2026-09",
+          "event_id": "e015",
+          "session_id": "s-live-click-first",
+          "scan_id": "scan-3",
+          "event_name": "scan_result_computed",
+          "occurred_at": "2026-09-17T10:01:41.000Z",
+          "source_kind": "live"
+        },
+        {
+          "experiment_id": "utm-chain-check-2026-09",
+          "event_id": "e016",
+          "session_id": "s-live-click-first",
+          "scan_id": "scan-3",
+          "event_name": "scan_result_displayed",
+          "occurred_at": "2026-09-17T10:01:41.000Z",
+          "source_kind": "live"
+        }
+      ],
+      "expected_received": 5,
+      "expected_stored": 5,
+      "note": "not counted as a result followed by a click: the order is part of the measure"
+    },
+    {
+      "name": "a visitor only runs the prefilled example",
+      "events": [
+        {
+          "experiment_id": "utm-chain-check-2026-09",
+          "event_id": "e017",
+          "session_id": "s-example-only",
+          "scan_id": null,
+          "event_name": "page_opened",
+          "occurred_at": "2026-09-17T10:02:00.000Z",
+          "source_kind": "live"
+        },
+        {
+          "experiment_id": "utm-chain-check-2026-09",
+          "event_id": "e018",
+          "session_id": "s-example-only",
+          "scan_id": null,
+          "event_name": "scan_started",
+          "occurred_at": "2026-09-17T10:02:05.000Z",
+          "source_kind": "example"
+        },
+        {
+          "experiment_id": "utm-chain-check-2026-09",
+          "event_id": "e019",
+          "session_id": "s-example-only",
+          "scan_id": "scan-4",
+          "event_name": "scan_result_computed",
+          "occurred_at": "2026-09-17T10:02:06.000Z",
+          "source_kind": "example"
+        },
+        {
+          "experiment_id": "utm-chain-check-2026-09",
+          "event_id": "e020",
+          "session_id": "s-example-only",
+          "scan_id": "scan-4",
+          "event_name": "scan_result_displayed",
+          "occurred_at": "2026-09-17T10:02:06.000Z",
+          "source_kind": "example"
+        },
+        {
+          "experiment_id": "utm-chain-check-2026-09",
+          "event_id": "e021",
+          "session_id": "s-example-only",
+          "scan_id": null,
+          "event_name": "product_link_clicked",
+          "occurred_at": "2026-09-17T10:02:10.000Z",
+          "source_kind": "example"
+        }
+      ],
+      "expected_received": 5,
+      "expected_stored": 5,
+      "note": "exposed, but a demonstration run is not a scan of a link of their own"
+    },
+    {
+      "name": "an automated check drives the page",
+      "events": [
+        {
+          "experiment_id": "utm-chain-check-2026-09",
+          "event_id": "e022",
+          "session_id": "s-automated",
+          "scan_id": null,
+          "event_name": "page_opened",
+          "occurred_at": "2026-09-17T10:02:30.000Z",
+          "source_kind": "test"
+        },
+        {
+          "experiment_id": "utm-chain-check-2026-09",
+          "event_id": "e023",
+          "session_id": "s-automated",
+          "scan_id": null,
+          "event_name": "scan_started",
+          "occurred_at": "2026-09-17T10:02:31.000Z",
+          "source_kind": "test"
+        },
+        {
+          "experiment_id": "utm-chain-check-2026-09",
+          "event_id": "e024",
+          "session_id": "s-automated",
+          "scan_id": "scan-5",
+          "event_name": "scan_result_computed",
+          "occurred_at": "2026-09-17T10:02:32.000Z",
+          "source_kind": "test"
+        },
+        {
+          "experiment_id": "utm-chain-check-2026-09",
+          "event_id": "e025",
+          "session_id": "s-automated",
+          "scan_id": "scan-5",
+          "event_name": "scan_result_displayed",
+          "occurred_at": "2026-09-17T10:02:32.000Z",
+          "source_kind": "test"
+        },
+        {
+          "experiment_id": "utm-chain-check-2026-09",
+          "event_id": "e026",
+          "session_id": "s-automated",
+          "scan_id": null,
+          "event_name": "product_link_clicked",
+          "occurred_at": "2026-09-17T10:02:35.000Z",
+          "source_kind": "test"
+        }
+      ],
+      "expected_received": 5,
+      "expected_stored": 5,
+      "note": "kept out of the live measure entirely, and readable on its own"
+    },
+    {
+      "name": "the same event is delivered twice",
+      "events": [
+        {
+          "experiment_id": "utm-chain-check-2026-09",
+          "event_id": "e028",
+          "session_id": "s-duplicate",
+          "scan_id": null,
+          "event_name": "page_opened",
+          "occurred_at": "2026-09-17T10:03:00.000Z",
+          "source_kind": "live"
+        },
+        {
+          "experiment_id": "utm-chain-check-2026-09",
+          "event_id": "e029",
+          "session_id": "s-duplicate",
+          "scan_id": null,
+          "event_name": "scan_started",
+          "occurred_at": "2026-09-17T10:03:05.000Z",
+          "source_kind": "live"
+        },
+        {
+          "experiment_id": "utm-chain-check-2026-09",
+          "event_id": "e030",
+          "session_id": "s-duplicate",
+          "scan_id": "scan-6",
+          "event_name": "scan_result_computed",
+          "occurred_at": "2026-09-17T10:03:06.000Z",
+          "source_kind": "live"
+        },
+        {
+          "experiment_id": "utm-chain-check-2026-09",
+          "event_id": "e027",
+          "session_id": "s-duplicate",
+          "scan_id": "scan-6",
+          "event_name": "scan_result_displayed",
+          "occurred_at": "2026-09-17T10:03:06.000Z",
+          "source_kind": "live"
+        },
+        {
+          "experiment_id": "utm-chain-check-2026-09",
+          "event_id": "e027",
+          "session_id": "s-duplicate",
+          "scan_id": "scan-6",
+          "event_name": "scan_result_displayed",
+          "occurred_at": "2026-09-17T10:03:06.000Z",
+          "source_kind": "live"
+        },
+        {
+          "experiment_id": "utm-chain-check-2026-09",
+          "event_id": "e031",
+          "session_id": "s-duplicate",
+          "scan_id": null,
+          "event_name": "product_link_clicked",
+          "occurred_at": "2026-09-17T10:03:20.000Z",
+          "source_kind": "live"
+        }
+      ],
+      "expected_received": 6,
+      "expected_stored": 5,
+      "note": "stored once, counted once"
+    },
+    {
+      "name": "collection is unavailable when the click happens",
+      "events": [
+        {
+          "experiment_id": "utm-chain-check-2026-09",
+          "event_id": "e032",
+          "session_id": "s-collection-down",
+          "scan_id": null,
+          "event_name": "page_opened",
+          "occurred_at": "2026-09-17T10:03:30.000Z",
+          "source_kind": "live"
+        },
+        {
+          "experiment_id": "utm-chain-check-2026-09",
+          "event_id": "e033",
+          "session_id": "s-collection-down",
+          "scan_id": null,
+          "event_name": "scan_started",
+          "occurred_at": "2026-09-17T10:03:35.000Z",
+          "source_kind": "live"
+        },
+        {
+          "experiment_id": "utm-chain-check-2026-09",
+          "event_id": "e034",
+          "session_id": "s-collection-down",
+          "scan_id": "scan-7",
+          "event_name": "scan_result_computed",
+          "occurred_at": "2026-09-17T10:03:36.000Z",
+          "source_kind": "live"
+        },
+        {
+          "experiment_id": "utm-chain-check-2026-09",
+          "event_id": "e035",
+          "session_id": "s-collection-down",
+          "scan_id": "scan-7",
+          "event_name": "scan_result_displayed",
+          "occurred_at": "2026-09-17T10:03:36.000Z",
+          "source_kind": "live"
+        }
+      ],
+      "expected_received": 4,
+      "expected_stored": 4,
+      "expected_sent": 5,
+      "note": "one click event was emitted and never received: the gap is reported, not filled in"
+    }
+  ],
+  "expected_metric": {
+    "live": {
+      "exposed_sessions": 7,
+      "sessions_with_a_result": 5,
+      "sessions_with_a_result_then_a_click": 2
+    },
+    "test": {
+      "exposed_sessions": 1,
+      "sessions_with_a_result": 1,
+      "sessions_with_a_result_then_a_click": 1
+    },
+    "example": {
+      "exposed_sessions": 0,
+      "sessions_with_a_result": 1,
+      "sessions_with_a_result_then_a_click": 1
+    }
+  }
+}
